@@ -19,9 +19,11 @@ access:
         - --rpc-addr=0.0.0.0:9000
         - --secure-rpc-addr=0.0.0.0:9001
         - --http-addr=0.0.0.0:8000
+        - --rest-addr=0.0.0.0:8070
+        - --state-stream-addr=0.0.0.0:9003
         - --collection-ingress-port=9000
         - --supports-observer=true
-        - --public-network-address=0.0.0.0:1234
+        - --public-network-address=0.0.0.0:3570
         - --log-tx-time-to-finalized
         - --log-tx-time-to-executed
         - --log-tx-time-to-finalized-executed
@@ -131,6 +133,7 @@ verification:
         - --profiler-dir=/profiler
         - --profiler-interval=2m
         - --nodeid={{.node_id}}
+        - --admin-addr=0.0.0.0:9002
 {{- end}}
 
 {{define "env"}}
