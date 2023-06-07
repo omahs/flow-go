@@ -18,10 +18,13 @@ jobs:
     name: Build boot tools
     runs-on: ubuntu-latest
     steps:
-    - id: auth
+    - name: Authenticate to Google Cloud
+      id: auth
       uses: google-github-actions/auth@v1
       with:
-        credentials_json: ${{ secrets.GCR_SERVICE_KEY }} # TODO: we need a new key to allow uploads
+        token_format: 'access_token'
+        workload_identity_provider: ${{ secrets.GCR_WORKLOAD_IDP }}
+        service_account: ${{ secrets.GCR_SERVICE_ACCOUNT }}
     - name: Setup Go
       uses: actions/setup-go@v2
       with:
