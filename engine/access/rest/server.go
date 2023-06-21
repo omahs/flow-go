@@ -33,7 +33,7 @@ func NewServer(backend access.API, listenAddress string, logger zerolog.Logger, 
 	return &http.Server{
 		Addr:         listenAddress,
 		Handler:      c.Handler(router),
-		WriteTimeout: time.Second * 15,
+		WriteTimeout: time.Second * 30,
 		ReadTimeout:  time.Second * 15,
 		IdleTimeout:  time.Second * 60,
 	}, nil
